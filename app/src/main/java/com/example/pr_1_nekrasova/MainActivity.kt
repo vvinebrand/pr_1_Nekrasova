@@ -10,6 +10,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -32,15 +34,18 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        val textView = findViewById<TextView>(R.id.font)
+        val typeFace = ResourcesCompat.getFont(this, R.font.handjet)
+        textView.typeface = typeFace
     }
 }
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Surface(color = Color.Blue) {
+    Surface(color = Color.LightGray) {
         Text(
             text = "Hi! My name is $name!",
-            modifier = modifier.padding(24.dp)
+            modifier = modifier.padding(12.dp)
         )
     }
 }
